@@ -8,7 +8,7 @@ const {
 	robots = "index, follow",
 } = Astro.props;
 
-const jsonld = {
+const jsonldApp = {
 	"@context": "https://schema.org",
 	"@graph": [
 		{
@@ -61,7 +61,35 @@ const jsonld = {
 		}
 	]
 }
-
+const jsonldWeb = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	"@id": "https://daf.pragmatsoft.com/#webpage",
+	"url": "https://daf.pragmatsoft.com",
+	"name": "DAF Speech Therapy – Android App for Stuttering Reduction",
+	"description": "DAF Speech Therapy is an Android app for speech fluency training using Delayed Auditory Feedback to reduce stuttering.",
+	"isPartOf": {
+		"@type": "WebSite",
+		"@id": "https://daf.pragmatsoft.com/#website"
+	},
+	"primaryImageOfPage": {
+		"@type": "ImageObject",
+		"url": "https://daf.pragmatsoft.com/favicon.svg"
+	},
+	"about": {
+		"@type": "MobileApplication",
+		"@id": "https://daf.pragmatsoft.com/#mobileapp"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "mamindeveloper",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://daf.pragmatsoft.com/favicon.svg"
+		}
+	},
+	"inLanguage": "en"
+}
 ---
 
 <!doctype html>
@@ -86,7 +114,8 @@ const jsonld = {
 
 		<link rel="canonical" href={url} />
 
-		<script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonldApp)} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonldWeb)} />
 	</head>
 	<body>
 		<slot />
