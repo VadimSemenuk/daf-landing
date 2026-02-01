@@ -1,0 +1,40 @@
+---
+import Feature from "./Feature.astro";
+import HeadphonesIcon from "./../assets/headphones_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
+import SaveIcon from "./../assets/save_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
+import StarIcon from "./../assets/star_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
+import PersonIcon from "./../assets/person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
+
+const descriptionItems = [
+	{
+		title: "Delayed Auditory Feedback (DAF) slows down your speech so you can speak clearly and smoothly",
+		icon: HeadphonesIcon,
+	},
+	{
+		title: "Voice recording and saving or sharing audio files",
+		icon: SaveIcon,
+	},
+	{
+		title: "Simple, intuitive, and user-friendly interface",
+		icon: StarIcon,
+	},
+	{
+		title: "Suitable for independent study or use with a speech therapist",
+		icon: PersonIcon,
+	}
+];
+---
+
+<section class="relative">
+	<div class="container flex flex-col justify-center pt-20 pb-20 relative">
+		<h2 class="text-center text-5xl font-medium mb-10">Features</h2>
+
+		<ul class="grid lg:grid-cols-2 gap-4">
+			{
+				descriptionItems.map((it, index) => (
+					<Feature key={index} index={index + 1} title={it.title} Icon={it.icon} />
+				))
+			}
+		</ul>
+	</div>
+</section>

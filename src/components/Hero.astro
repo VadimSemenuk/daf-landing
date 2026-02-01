@@ -1,0 +1,68 @@
+---
+import background from '../assets/background.png';
+import DAF from '../assets/daf.png';
+import GooglePlay from '../assets/google-play.svg';
+import ForwardIcon from '../assets/arrow_forward_24dp_E3E3E3_FILL0_wght300_GRAD0_opsz24.svg';
+---
+
+<section class="min-h-screen flex items-center relative">
+	<img
+		class="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-cover z-0"
+		src={background.src}
+		alt=""
+		fetchpriority="high"
+	/>
+
+	<div class="container relative grid grid-cols-12 gap-4 pt-20 pb-20">
+		<div class="col-span-12 md:col-span-8 flex flex-col justify-between">
+			<div>
+				<h1 class="text-[clamp(4rem,8vw,7rem)] leading-none tracking-tighter">
+					<span class="text-primary font-bold">DAF</span> – stuttering <br /> therapy app
+				</h1>
+
+				<h2 class="text-xl md:text-2xl font-light max-w-[500px] mt-10">
+					Delayed Auditory Feedback (DAF) slows down your speech so you can speak clearly and smoothly.
+				</h2>
+			</div>
+
+			<div class="mt-20 flex flex-col lg:flex-row gap-4">
+				<a
+					class="shrink-0"
+					href="https://play.google.com/store/apps/details?id=com.pragmatsoft.daf"
+					target="_blank"
+				>
+					<img
+						class="h-18"
+						src={GooglePlay.src}
+						alt="google play"
+					/>
+				</a>
+
+				<a
+					href="https://daf.logoadult.by/"
+					target="_blank"
+					class="bg-primary rounded-full h-18 flex items-center text-primary-dark cursor-pointer
+							transition-transform duration-200 hover:scale-102
+							w-[250px] shrink-0"
+				>
+					<span class="flex-1 text-center pl-5 pr-5 text-xl text-primary-light">Try online</span>
+					<span class="rounded-full shrink-0 flex items-center justify-center h-14 w-14 mr-2 bg-primary-light">
+							<ForwardIcon class="h-[35px]" />
+					</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-span-12 md:col-span-4 md:col-start-9 lg:col-span-3 lg:col-start-10
+			flex flex-col justify-center
+			pt-20 md:pt-0">
+			<img
+				class="w-full object-cover max-w-[300px] md:max-w-[unset] m-[auto]"
+				src={DAF.src}
+				fetchpriority="high"
+				loading="eager"
+				alt="DAF - stuttering therapy app"
+			/>
+		</div>
+	</div>
+</section>
