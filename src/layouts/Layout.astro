@@ -1,5 +1,12 @@
 ---
 import "../styles/global.css";
+
+const {
+	title = "Delayed Auditory Feedback (DAF) - Stuttering therapy",
+	description = "Delayed Auditory Feedback (DAF) - a stuttering therapy technique. Android and web (online) applications that implement the DAF technique.",
+	url = "https://daf.pragmatsoft.com",
+	robots = "index, follow",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -10,7 +17,19 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={url} />
+
+		<link rel="canonical" href={url} />
 	</head>
 	<body>
 		<slot />
