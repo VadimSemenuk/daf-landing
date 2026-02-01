@@ -7,6 +7,61 @@ const {
 	url = "https://daf.pragmatsoft.com",
 	robots = "index, follow",
 } = Astro.props;
+
+const jsonld = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "MobileApplication",
+			"@id": "https://daf.pragmatsoft.com/#mobileapp",
+			"name": "DAF Speech Therapy",
+			"description": "Speech fluency training using Delayed Auditory Feedback. Reduce Stuttering.",
+			"applicationCategory": "HealthApplication",
+			"operatingSystem": "Android 9+, Web",
+			"isAccessibleForFree": true,
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "mamindeveloper",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://daf.pragmatsoft.com/favicon.svg"
+				},
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"email": "mamindeveloper@gmail.com",
+					"contactType": "customer support"
+				}
+			},
+			"downloadUrl": "https://play.google.com/store/apps/details?id=com.pragmatsoft.daf",
+			"privacyPolicy": "https://vadimsemenuk.github.io/docs/daf_privacy_policy.html"
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://daf.pragmatsoft.com/#website",
+			"url": "https://daf.pragmatsoft.com",
+			"name": "DAF Speech Therapy",
+			"publisher": {
+				"@type": "Organization",
+				"name": "mamindeveloper",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://daf.pragmatsoft.com/favicon.svg"
+				},
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"email": "mamindeveloper@gmail.com",
+					"contactType": "customer support"
+				}
+			}
+		}
+	]
+}
+
 ---
 
 <!doctype html>
@@ -30,6 +85,8 @@ const {
 		<meta property="og:url" content={url} />
 
 		<link rel="canonical" href={url} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
 	</head>
 	<body>
 		<slot />
